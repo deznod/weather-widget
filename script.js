@@ -23,6 +23,8 @@ $(document).ready(function(){
         out +='<p style ="text-align:center"><img src="https://openweathermap.org/img/w/'+data.weather[0].icon+'.png"</p>';
         out +='Температура: <b>'+Math.round(data.main.temp-273)+'&#176;C</b><br>';
         out +='Влажность: <b>'+data.main.humidity+'%</b><br>';
+        out +='Давление: <b>'+Math.round(data.main.pressure*0.00750063755419211*100)+' мм.рт.ст</b><br>';
+        out +='Видимость: <b>'+data.visibility/1000+' км</b><br>';
         console.log(data.main);
         $('#weather').html(out);
     }
