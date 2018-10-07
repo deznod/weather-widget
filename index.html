@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Погода</h1>
+    <div calss="left">
+        <p>
+            <label for="">Страна: </label>
+            <select>
+                <option disabled selected>Выбирите страну</option>
+                <option value="UA">Украина</option>
+                <option value="JP">Япония</option>
+                <option value="RU">Россия</option>
+            </select>
+        </p>
+        <p><label for="">Город: </label>
+        <div id="city">
+        </div>
+        </p>
+    </div>
+    <div class="right">
+        <div id="weather"></div>
+    </div>
+    <script src="jq.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
