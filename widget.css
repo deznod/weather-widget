@@ -1,0 +1,35 @@
+#city {
+    height: 300px;
+    overflow: auto;
+    width: 300px;
+   
+
+}
+
+.main {
+    
+    display: flex;
+
+    align-content: center;
+    align-items: center;
+
+
+    
+}
+
+.left {
+    flex: auto;
+    /* margin-left: 50px; */
+}
+
+.right {
+    flex: auto;
+    
+} 
+
+#weather {
+    text-align: center;
+}
+h1{
+   
+}
