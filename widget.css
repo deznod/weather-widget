@@ -2,19 +2,19 @@
     height: 300px;
     overflow: auto;
     width: 300px;
-   
+
 
 }
 
 .main {
-    
+
     display: flex;
 
     align-content: center;
     align-items: center;
 
 
-    
+
 }
 
 .left {
@@ -24,12 +24,11 @@
 
 .right {
     flex: auto;
-    
-} 
+
+}
 
 #weather {
     text-align: center;
 }
-h1{
-   
-}
+
+h1 {}
