@@ -25,7 +25,8 @@ $(document).ready(function () {
                             'Температура: <b>' + Math.round(data.main.temp - 273) + '&#176;C</b><br>' +
                             'Влажность: <b>' + data.main.humidity + '%</b><br>' +
                             'Давление: <b>' + Math.round(data.main.pressure * 0.00750063755419211 * 100) + ' мм.рт.ст</b><br>' +
-                            'Видимость: <b>' + data.visibility / 1000 + ' км</b><br>';
+                            'Видимость: <b>' + data.visibility / 1000 + ' км</b><br>'+
+                            'Город:<b>' + data.name;
                         console.log(data.main);
                         $('#weather').html(out);
                     }
