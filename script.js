@@ -43,9 +43,6 @@ $(document).ready(function () {
         });
 
     });
-
-
-
 });
 //определяем местоположения пользователя
 var x = document.getElementById("geolocation");
