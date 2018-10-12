@@ -41,10 +41,9 @@
     </div>
     <script src="jq.js"></script>
     <script src="script.js"></script>
-
     <script>
-        var x = document.getElementById("demo");
-        //скрипт для определения местоположения 
+        var x = document.getElementById("geolocation");
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -54,7 +53,7 @@
         }
 
         function showPosition(position) {
-            x.innerHTML = "широта: " + position.coords.latitude +
+            x.innerHTML = "Широта: " + position.coords.latitude +
                 "<br>Долгота: " + position.coords.longitude;
             $.get(
                 "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" +
