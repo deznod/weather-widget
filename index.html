@@ -10,30 +10,73 @@
 </head>
 
 <body>
-        <h1>Погода</h1>
+    <h1>Погода</h1>
     <div class="main">
-    <div calss="left">
-        <p>
-            <label for="">Страна: </label>
-            <select>
-                <option disabled selected>Выбирите страну</option>
-                <option value="UA">Украина</option>
-                <option value="JP">Япония</option>
-                <option value="RU">Россия</option>
-            </select>
-        </p>
-        <p><label for="">Город: </label>
-            <div id="city">
+        <div calss="left">
+            <p>
+                <label for="">Страна: </label>
+                <select>
+                    <option disabled selected>Выбирите страну</option>
+                    <option value="UA">Украина</option>
+                    <option value="JP">Япония</option>
+                    <option value="RU">Россия</option>
+                </select>
+            </p>
 
-            </div>
-        </p>
-    </div>
-    <div class="right">
-        <div id="weather"></div>
-    </div>
+
+            <button onclick="getLocation()">Найти город по геолокации</button>
+
+            <p id="geolocation"></p>
+
+
+            <p><label for="">Город: </label>
+                <div id="city">
+
+                </div>
+            </p>
+        </div>
+        <div class="right">
+            <div id="weather"></div>
+        </div>
     </div>
     <script src="jq.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        var x = document.getElementById("demo");
+        //скрипт для определения местоположения 
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "широта: " + position.coords.latitude +
+                "<br>Долгота: " + position.coords.longitude;
+            $.get(
+                "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" +
+                position.coords.longitude, {
+                    "id": $(this).attr('value'),
+                    "appid": "d6fadff7b900b59b90336186e3a03a60"
+                },
+                function (data) {
+                    let out = '';
+                    out += 'Погода: <b>' + data.weather[0].main + '</b>' +
+                        '<img src="https://openweathermap.org/img/w/' + data.weather[0].icon + '.png"' +
+                        'Температура: <b>' + Math.round(data.main.temp - 273) + '&#176;C</b><br>' +
+                        'Влажность: <b>' + data.main.humidity + '%</b><br>' +
+                        'Давление: <b>' + Math.round(data.main.pressure * 0.00750063755419211 * 100) +
+                        ' мм.рт.ст</b><br>' +
+                        'Видимость: <b>' + data.visibility / 1000 + ' км</b><br>';
+                    console.log(data.main);
+                    $('#weather').html(out);
+                }
+            );
+        }
+    </script>
 </body>
 
 </html>
