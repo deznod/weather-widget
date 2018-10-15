@@ -24,7 +24,9 @@
 
 .right {
     flex: auto;
-
+    height: 300px;
+    overflow: auto;
+    width: 300px;
 }
 
 #weather {
